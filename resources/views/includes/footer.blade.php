@@ -45,6 +45,8 @@
 
             <!-- App js -->
             <script src="{{ asset('assets') }}/js/app.min.js"></script>
+            <!-- Custom JavaScript -->
+            <script src="{{ asset('assets') }}/js/custom.js"></script>
 
             </body>
 

@@ -14,16 +14,16 @@
         <li class="menu-title mt-2">Apps</li>
 
         <li>
-            <a href="#sidebarEmail" data-bs-toggle="collapse">
+            <a href="#sidebarUser" data-bs-toggle="collapse">
                 <i data-feather="users"></i>
                 <span> Users </span>
                 <span class="menu-arrow"></span>
             </a>
-            <div class="collapse" id="sidebarEmail">
+            <div class="collapse" id="sidebarUser">
                 <ul class="nav-second-level">
-                    <li><a href="#">All User</a></li>
-                    <li><a href="#">Add User</a></li>
-                    <li><a href="#">User Roles</a></li>
+                    <li><a href="{{ route('admin.users') }}">All User</a></li>
+                    <li><a href="{{ route('admin.user.create') }}">Add User</a></li>
+                    <li><a href="#">User Role</a></li>
                 </ul>
             </div>
         </li>

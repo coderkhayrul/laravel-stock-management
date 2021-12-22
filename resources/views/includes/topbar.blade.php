@@ -65,11 +65,10 @@
                                                 </div>
                                             </a>
                                         </div>
-
                                     </div>
                                 </div>
                             </form>
-                        </li>>
+                        </li>
 
             <li class="dropdown d-none d-lg-inline-block">
                 <a class="nav-link dropdown-toggle arrow-none" data-toggle="fullscreen" href="#">
@@ -239,17 +238,11 @@
                 </div>
             </li>
 
-            {{-- <li class="dropdown notification-list">
-                        <a href="javascript:void(0);" class="nav-link right-bar-toggle">
-                            <i data-feather="settings"></i>
-                        </a>
-                    </li> --}}
-
         </ul>
 
         <!-- LOGO -->
         <div class="logo-box">
-            <a href="index.html" class="logo logo-dark">
+            <a href="{{ url('/dashboard') }}" class="logo logo-dark">
                 <span class="logo-sm">
                     <img src="{{ asset('assets') }}/images/logo-sm.png" alt="" height="24">
                     <!-- <span class="logo-lg-text-light">Shreyu</span> -->
@@ -260,7 +253,7 @@
                 </span>
             </a>
 
-            <a href="index.html" class="logo logo-light">
+            <a href="{{ url('/dashboard') }}" class="logo logo-light">
                 <span class="logo-sm">
                     <img src="{{ asset('assets') }}/images/logo-sm.png" alt="" height="24">
                 </span>

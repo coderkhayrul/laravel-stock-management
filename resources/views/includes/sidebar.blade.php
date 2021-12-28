@@ -27,6 +27,19 @@
                 </ul>
             </div>
         </li>
+        <li>
+            <a href="#sidebarProduct" data-bs-toggle="collapse">
+                <i data-feather="codesandbox"></i>
+                <span> Product </span>
+                <span class="menu-arrow"></span>
+            </a>
+            <div class="collapse" id="sidebarProduct">
+                <ul class="nav-second-level">
+                    <li><a href="#">All Product</a></li>
+                    <li><a href="#">Add Product</a></li>
+                </ul>
+            </div>
+        </li>
 
         <li>
             <a href="#">

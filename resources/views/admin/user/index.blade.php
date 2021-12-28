@@ -32,10 +32,11 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach ($allUsers as $user)
                         <tr>
-                            <td>Tiger Nixon</td>
-                            <td>System Architect</td>
-                            <td>Edinburgh</td>
+                            <td>{{ $user->name }}</td>
+                            <td>-----</td>
+                            <td>{{ $user->email }}</td>
                             <td>61</td>
                             <td class="text-center">
                                 <div class="dropdown align-self-center">
@@ -43,6 +44,10 @@
                                         <i class="uil uil-ellipsis-h"></i>
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-end">
+                                        <!-- item-->
+                                        <a href="javascript:void(0);" class="dropdown-item">
+                                            <i class="uil uil- uil-eye me-2"></i>View
+                                        </a>
                                         <!-- item-->
                                         <a href="javascript:void(0);" class="dropdown-item">
                                             <i class="uil uil-edit-alt me-2"></i>Edit
@@ -60,6 +65,7 @@
                                 </div>
                             </td>
                         </tr>
+                        @endforeach
                     </tbody>
                 </table>
 

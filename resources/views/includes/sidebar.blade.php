@@ -31,7 +31,7 @@
             <a href="#sidebarCategory" data-bs-toggle="collapse">
                 <i data-feather="grid"></i>
                 <span> Categories </span>
-                <span class="menu-arrow">></span>
+                <span class="menu-arrow"></span>
             </a>
             <div class="collapse" id="sidebarCategory">
                 <ul class="nav-second-level">

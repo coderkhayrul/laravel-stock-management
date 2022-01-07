@@ -14,10 +14,10 @@
     <div class="col-12">
         <div class="card">
             <div class="d-flex card-header bg-secondary text-light justify-content-between">
-                <span><i class="uil uil-users-alt"></i> <strong>View User Information</strong></span>
-                <a href="{{ route('admin.users') }}" class="btn btn-xs btn-success">
+                <span><i class="uil uil-users-alt"></i> <strong>View Category Information</strong></span>
+                <a href="{{ route('admin.categories') }}" class="btn btn-xs btn-success">
                     <i class="uil-book-reader"></i>
-                    All User
+                    All Category
                 </a>
             </div><!-- end card header -->
             <div class="card-body">
@@ -36,29 +36,24 @@
                                                 <div class="cal-md-8">
                                                     <table class="table table-striped table-bordered table-hover custrom-view-table">
                                                         <tr>
-                                                            <td>Name</td>
+                                                            <td>Category Name</td>
                                                             <td class="text-center">:</td>
-                                                            <td>{{ $user->name }}</td>
+                                                            <td>{{ $category->category_name }}</td>
                                                         </tr>
                                                         <tr>
-                                                            <td>Phone</td>
+                                                            <td>Remarks</td>
                                                             <td class="text-center">:</td>
-                                                            <td>01835061968</td>
+                                                            <td>{{ $category->remarks }}</td>
                                                         </tr>
                                                         <tr>
-                                                            <td>Email</td>
+                                                            <td>Product Name</td>
                                                             <td class="text-center">:</td>
-                                                            <td>{{ $user->email }}</td>
+                                                            <td>Product Name</td>
                                                         </tr>
                                                         <tr>
-                                                            <td>User Role</td>
+                                                            <td>Created Time</td>
                                                             <td class="text-center">:</td>
-                                                            <td>Super Admin</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Registation Time</td>
-                                                            <td class="text-center">:</td>
-                                                            <td>{{ $user->created_at->format('Y-m-d | h:i') }}</td>
+                                                            <td>{{ $category->created_at->format('Y-m-d | h:i') }}</td>
                                                         </tr>
                                                     </table>
                                                 </div>
@@ -79,7 +74,8 @@
                     <a href="#" class="btn btn-dark">PDF</a>
                     <a href="#" class="btn btn-secondary">Excel</a>
                 </div>
-            </div><!-- end card footer -->
+            </div>
+            <!-- end card footer -->
         </div> <!-- end card -->
     </div><!-- end col-->
 </div>

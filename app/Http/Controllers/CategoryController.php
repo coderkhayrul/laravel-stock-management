@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CategoryRequest;
+use App\Models\Category;
 use App\Models\ProductCategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class CategoryController extends Controller
 {
@@ -18,7 +21,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = ProductCategory::all();
+        $categories = Category::where('status', 1)->orderBy('category_id', 'DESC')->get();
         return view('admin.product.category.index', compact('categories'));
     }
 
@@ -29,7 +32,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.product.category.create');
     }
 
     /**
@@ -38,9 +41,16 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CategoryRequest $request)
     {
-        //
+        $category = new Category();
+        $category->category_name = $request->category_name;
+        $category->slug = Str::slug($request->category_name, '-');
+        $category->remarks = $request->remarks;
+        $category->save();
+
+        $message = "Product Category Successfully Created";
+        return redirect()->back()->with('message', $message);
     }
 
     /**
@@ -49,9 +59,10 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        //
+        $category = Category::where('status', 1)->where('slug', $slug)->first();
+        return view('admin.product.category.show', compact('category'));
     }
 
     /**

@@ -15,9 +15,9 @@
         <div class="card">
             <div class="d-flex card-header bg-secondary text-light justify-content-between">
                 <span><i class="uil uil-users-alt"></i> <strong>All Category Information</strong></span>
-                <a href="{{ route('admin.user.create') }}" class="btn btn-xs btn-success">
+                <a href="{{ route('admin.category.create') }}" class="btn btn-xs btn-success">
                     <i class="uil-plus-circle"></i>
-                    Add User
+                    Add Category
                 </a>
             </div><!-- end card header -->
             <div class="card-body">
@@ -38,9 +38,9 @@
                     <tbody>
                         @foreach ($categories as $category)
                         <tr>
-                            <td>{{ $caegory->category_name }}</td>
-                            <td>{{ $caegory->remarks }}</td>
-                            <td>Email</td>
+                            <td>{{ $category->category_name }}</td>
+                            <td>{{ $category->remarks }}</td>
+                            <td>Product Name</td>
                             <td class="text-center">
                                 <div class="dropdown align-self-center">
                                     <a href="#" class="dropdown-toggle arrow-none text-muted" data-bs-toggle="dropdown" aria-expanded="false">
@@ -48,7 +48,7 @@
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-end">
                                         <!-- item-->
-                                        <a href="#" class="dropdown-item">
+                                        <a href="{{ route('admin.category.show',$category->slug) }}" class="dropdown-item">
                                             <i class="uil uil- uil-eye me-2"></i>View
                                         </a>
                                         <!-- item-->
@@ -79,7 +79,8 @@
                     <a href="#" class="btn btn-dark">PDF</a>
                     <a href="#" class="btn btn-secondary">Excel</a>
                 </div>
-            </div><!-- end card footer -->
+            </div>
+            <!-- end card footer -->
         </div> <!-- end card -->
     </div><!-- end col-->
 </div>

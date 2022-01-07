@@ -48,6 +48,8 @@
             <!-- Custom JavaScript -->
             <script src="{{ asset('assets') }}/js/custom.js"></script>
 
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+
             </body>
 
             <!-- Mirrored from shreyu.coderthemes.com/layouts-dark-sidebar.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Dec 2021 13:58:43 GMT -->

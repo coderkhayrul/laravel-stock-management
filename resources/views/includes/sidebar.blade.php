@@ -37,6 +37,7 @@
                 <ul class="nav-second-level">
                     <li><a href="{{ route('admin.categories') }}">All Category</a></li>
                     <li><a href="{{ route('admin.category.create') }}">Add Category</a></li>
+                    <li><a href="#">TRASH BOX</a></li>
                 </ul>
             </div>
         </li>

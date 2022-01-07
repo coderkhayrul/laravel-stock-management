@@ -44,10 +44,10 @@ Route::get('dashboard/category/create', [CategoryController::class, 'create'])->
 Route::post('dashboard/category/store', [CategoryController::class, 'store'])->name('admin.category.store');
 Route::get('dashboard/category/{slug}', [CategoryController::class, 'show'])->name('admin.category.show');
 Route::get('dashboard/category/edit/{id}', [CategoryController::class, 'edit'])->name('admin.category.edit');
-Route::post('dashboard/category/update/{id}', [CategoryController::class, 'update'])->name('admin.category.update');
+Route::put('dashboard/category/update/{id}', [CategoryController::class, 'update'])->name('admin.category.update');
 
-Route::post('dashboard/category/softdelete/{id}', [CategoryController::class, 'softdelete'])->name('admin.category.softdelete');
-Route::post('dashboard/category/restore/{id}', [CategoryController::class, 'restore'])->name('admin.category.restore');
-Route::post('dashboard/category/destroy/{id}', [CategoryController::class, 'destroy'])->name('admin.category.destroy');
+Route::post('dashboard/category/softdelete/{slug}', [CategoryController::class, 'softdelete'])->name('admin.category.softdelete');
+Route::post('dashboard/category/restore/{slug}', [CategoryController::class, 'restore'])->name('admin.category.restore');
+Route::delete('dashboard/category/destroy/{slug}', [CategoryController::class, 'destroy'])->name('admin.category.destroy');
 
 require __DIR__ . '/auth.php';

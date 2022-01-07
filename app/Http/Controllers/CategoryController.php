@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CategoryRequest;
+use App\Http\Requests\CategoryUpdateRequest;
 use App\Models\Category;
 use App\Models\ProductCategory;
 use Illuminate\Http\Request;
@@ -21,7 +22,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::where('status', 1)->orderBy('category_id', 'DESC')->get();
+        $categories = Category::where('status', 1)->orderBy('id', 'DESC')->get();
         return view('admin.product.category.index', compact('categories'));
     }
 
@@ -71,9 +72,10 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($slug)
     {
-        //
+        $category = Category::where('status', 1)->where('slug', $slug)->first();
+        return view('admin.product.category.edit', compact('category'));
     }
 
     /**
@@ -83,9 +85,17 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CategoryUpdateRequest $request, $id)
     {
-        //
+        $category = Category::where('status', 1)->where('id', $id)->first();
+        // dd($request->all());
+        // dd($category)
+        $category->category_name = $request->category_name;
+        $category->remarks = $request->remarks;
+        $category->update();
+
+        $message = 'Category Update Successfully!';
+        return redirect()->route('admin.categories')->with('message', $message);
     }
 
     /**
@@ -94,8 +104,32 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($slug)
     {
-        //
+        $category = Category::where('status', 1)->where('slug', $slug)->first();
+        $category->delete();
+
+        $message = 'Category Delete Successfully!';
+        return redirect()->back()->with('message', $message);
+    }
+
+    public function softdelete($slug)
+    {
+        $category = Category::where('status', 1)->where('slug', $slug)->first();
+        $category->status = 0;
+        $category->update();
+
+        $message = 'Category Move To Trush Successfully!';
+        return redirect()->back()->with('message', $message);
+    }
+
+    public function restore($slug)
+    {
+        $category = Category::where('status', 1)->where('slug', $slug)->first();
+        $category->status = 1;
+        $category->update();
+
+        $message = 'Category Restore Successfully!';
+        return redirect()->back()->with('message', $message);
     }
 }

@@ -25,12 +25,6 @@
                             <div class="col-md-6">
                                 <div class="card">
                                     <div class="card-body">
-                                        {{-- @if (Session::has('message'))
-                                            <div class="alert alert-success fade show" role="alert">
-                                                {{ Session::get('message') }}
-                                            </div>
-                                        @endif --}}
-
                                             <div class="row">
                                                 <div class="cal-md-2"></div>
                                                 <div class="cal-md-8">

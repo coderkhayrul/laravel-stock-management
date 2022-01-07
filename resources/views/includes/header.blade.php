@@ -30,6 +30,9 @@
     <!-- Custom Style -->
     <link href="{{ asset('assets') }}/css/style.css" rel="stylesheet" type="text/css" />
 
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+
 </head>
 
 <body class="loading"

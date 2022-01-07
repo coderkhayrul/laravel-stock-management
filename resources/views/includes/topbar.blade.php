@@ -46,7 +46,7 @@
                                             <!-- item-->
                                             <a href="javascript:void(0);" class="dropdown-item notify-item">
                                                 <div class="d-flex text-align-start">
-                                                    <img class="me-2 rounded-circle" src="assets/images/users/avatar-2.jpg" alt="Generic placeholder image" height="32">
+                                                    <img class="me-2 rounded-circle" src="{{ asset('assets') }}/images/users/avatar-2.jpg" alt="Generic placeholder image" height="32">
                                                     <div class="flex-grow-1">
                                                         <h5 class="m-0 fs-14">Shirley Miller</h5>
                                                         <span class="fs-12 mb-0">UI Designer</span>
@@ -57,7 +57,7 @@
                                             <!-- item-->
                                             <a href="javascript:void(0);" class="dropdown-item notify-item">
                                                 <div class="d-flex text-align-start">
-                                                    <img class="me-2 rounded-circle" src="assets/images/users/avatar-5.jpg" alt="Generic placeholder image" height="32">
+                                                    <img class="me-2 rounded-circle" src="{{ asset('assets') }}/images/users/avatar-5.jpg" alt="Generic placeholder image" height="32">
                                                     <div class="flex-grow-1">
                                                         <h5 class="m-0 fs-14">Timothy Moreno</h5>
                                                         <span class="fs-12 mb-0">Frontend Developer</span>
@@ -148,7 +148,7 @@
                                     <!-- item-->
                                     <a href="javascript:void(0);" class="dropdown-item notify-item border-bottom">
                                         <div class="notify-icon">
-                                            <img src="assets/images/users/avatar-1.jpg" class="img-fluid rounded-circle" alt="" />
+                                            <img src="{{ asset('assets') }}/images/users/avatar-1.jpg" class="img-fluid rounded-circle" alt="" />
                                         </div>
                                         <p class="notify-details">Karen Robinson</p>
                                         <p class="text-muted mb-0 user-msg">
@@ -159,7 +159,7 @@
                                     <!-- item-->
                                     <a href="javascript:void(0);" class="dropdown-item notify-item border-bottom">
                                         <div class="notify-icon">
-                                            <img src="assets/images/users/avatar-2.jpg" class="img-fluid rounded-circle" alt="" />
+                                            <img src="{{ asset('assets') }}/images/users/avatar-2.jpg" class="img-fluid rounded-circle" alt="" />
                                         </div>
                                         <p class="notify-details">Cristina Pride</p>
                                         <p class="text-muted mb-0 user-msg">

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\UserRequest;
+use App\Http\Requests\UserUpdateRequest;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -38,16 +39,25 @@ class UserController extends Controller
         return redirect()->back()->with('message', $message);
     }
 
-    public function edit()
+    public function show($id)
     {
+        $user = User::findOrFail($id);
+        return view('admin.user.show', compact('user'));
     }
 
-    public function view()
+    public function edit($id)
     {
+        $user = User::findOrFail($id);
+        return view('admin.user.edit', compact('user'));
     }
 
-    public function update()
+    public function update(UserUpdateRequest $request, $id)
     {
+        $user = User::findOrFail($id);
+        $user->name = $request->userName;
+        $user->update();
+        $message = "User Update Successfully!";
+        return redirect()->route('admin.users')->with('message', $message);
     }
 
     public function softdelete()

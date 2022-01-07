@@ -18,6 +18,19 @@ a{
 .clr{
     clear: both;
 }
-.custom_table{
+
+.custrom-view-table tr {
+    width: 29%;
+}
+.custrom-view-table tr td{
+    font-style: 17px !important;
+}
+.custrom-view-table tr td:first-child {
+    font-weight: bold !important;
+    text-align: right !important;
+}
+
+.custrom-view-table tr td:last-child {
 
 }
+

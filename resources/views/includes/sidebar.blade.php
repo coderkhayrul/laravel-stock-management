@@ -28,6 +28,19 @@
             </div>
         </li>
         <li>
+            <a href="#sidebarCategory" data-bs-toggle="collapse">
+                <i data-feather="grid"></i>
+                <span> Categories </span>
+                <span class="menu-arrow">></span>
+            </a>
+            <div class="collapse" id="sidebarCategory">
+                <ul class="nav-second-level">
+                    <li><a href="{{ route('admin.categories') }}">All Category</a></li>
+                    <li><a href="{{ route('admin.category.create') }}">Add Category</a></li>
+                </ul>
+            </div>
+        </li>
+        <li>
             <a href="#sidebarProduct" data-bs-toggle="collapse">
                 <i data-feather="codesandbox"></i>
                 <span> Product </span>

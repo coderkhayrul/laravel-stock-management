@@ -14,7 +14,7 @@
     <div class="col-12">
         <div class="card">
             <div class="d-flex card-header bg-secondary text-light justify-content-between">
-                <span><i class="uil uil-users-alt"></i> <strong>All User Information</strong></span>
+                <span><i class="uil uil-users-alt"></i> <strong>All Category Information</strong></span>
                 <a href="{{ route('admin.user.create') }}" class="btn btn-xs btn-success">
                     <i class="uil-plus-circle"></i>
                     Add User
@@ -29,20 +29,18 @@
                 <table id="basic-datatable" class="table table-bordered table-hover table-striped">
                     <thead class="table-dark">
                         <tr>
-                            <th>Name</th>
-                            <th>Phone</th>
-                            <th>Email</th>
-                            <th>Role</th>
+                            <th>Category Name</th>
+                            <th>Remarks</th>
+                            <th>Products</th>
                             <th>Manage</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($allUsers as $user)
+                        @foreach ($categories as $category)
                         <tr>
-                            <td>{{ $user->name }}</td>
-                            <td>-----</td>
-                            <td>{{ $user->email }}</td>
-                            <td>61</td>
+                            <td>{{ $caegory->category_name }}</td>
+                            <td>{{ $caegory->remarks }}</td>
+                            <td>Email</td>
                             <td class="text-center">
                                 <div class="dropdown align-self-center">
                                     <a href="#" class="dropdown-toggle arrow-none text-muted" data-bs-toggle="dropdown" aria-expanded="false">
@@ -50,11 +48,11 @@
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-end">
                                         <!-- item-->
-                                        <a href="{{ route('admin.user.show',$user->id) }}" class="dropdown-item">
+                                        <a href="#" class="dropdown-item">
                                             <i class="uil uil- uil-eye me-2"></i>View
                                         </a>
                                         <!-- item-->
-                                        <a href="{{ route('admin.user.edit',$user->id) }}" class="dropdown-item">
+                                        <a href="#" class="dropdown-item">
                                             <i class="uil uil-edit-alt me-2"></i>Edit
                                         </a>
                                         <!-- item-->

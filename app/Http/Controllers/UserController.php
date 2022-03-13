@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\UserRequest;
-use App\Http\Requests\UserUpdateRequest;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
+use Intervention\Image\ImageManagerStatic as Image;
+// use Intervention\Image\ImageManager as Image;
 
 class UserController extends Controller
 {
@@ -27,16 +28,48 @@ class UserController extends Controller
         return view('admin.user.create');
     }
 
-    public function store(UserRequest $request)
+    public function store(Request $request)
     {
-        User::insert([
-            'name' => $request->userName,
+        $this->validate($request, [
+            'name' => 'required',
+            'email' => ['required', 'string', 'email', 'unique:users'],
+            'password' => ['required', 'confirmed'],
+            'role_id' => 'required',
+        ], [
+            'name.required' => 'Enter Your User Name',
+            'email.required' => 'Enter Your Email',
+            'password.required' => 'Enter Your Password',
+            'role_id.required' => 'Select Your Role Name',
+        ]);
+
+        $insert = User::insertGetId([
+            'name' => $request->name,
+            'phone' => $request->phone,
             'email' => $request->email,
+            'role_id' => $request->role_id,
             'password' => Hash::make($request->password),
             'created_at' => Carbon::now()->toDateTimeString(),
         ]);
-        $message = "User Create Successfully!";
-        return redirect()->back()->with('message', $message);
+
+        // User Image Store
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imageName = 'user' . time() . '.' . $image->getClientOriginalExtension();
+            Image::make($image)->save('uploads/user/' . $imageName);
+
+            User::where('id', $insert)->update([
+                'image' => $imageName,
+                'created_at' => Carbon::now()->toDateTimeString(),
+            ]);
+        }
+
+        if ($insert) {
+            Session::flash('success', 'User Created successfully');
+            return redirect()->back();
+        } else {
+            Session::flash('error', 'User Created Failed!');
+            return redirect()->back();
+        }
     }
 
     public function show($id)
@@ -51,7 +84,7 @@ class UserController extends Controller
         return view('admin.user.edit', compact('user'));
     }
 
-    public function update(UserUpdateRequest $request, $id)
+    public function update(Request $request, $id)
     {
         $user = User::findOrFail($id);
         $user->name = $request->userName;

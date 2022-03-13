@@ -21,12 +21,13 @@
             </a>
             <div class="collapse" id="sidebarUser">
                 <ul class="nav-second-level">
-                    <li><a href="{{ route('admin.users') }}">All User</a></li>
+                    <li><a href="{{ route('admin.user') }}">All User</a></li>
                     <li><a href="{{ route('admin.user.create') }}">Add User</a></li>
                     <li><a href="#">User Role</a></li>
                 </ul>
             </div>
         </li>
+
         <li>
             <a href="#sidebarCategory" data-bs-toggle="collapse">
                 <i data-feather="grid"></i>
@@ -35,9 +36,8 @@
             </a>
             <div class="collapse" id="sidebarCategory">
                 <ul class="nav-second-level">
-                    <li><a href="{{ route('admin.categories') }}">All Category</a></li>
-                    <li><a href="{{ route('admin.category.create') }}">Add Category</a></li>
-                    <li><a href="#">TRASH BOX</a></li>
+                    <li><a href="#">All Category</a></li>
+                    <li><a href="#">Add Category</a></li>
                 </ul>
             </div>
         </li>
@@ -62,7 +62,8 @@
             </a>
         </li>
         <li>
-            <a href="{{ route('logout') }}" onclick="event.preventDefault();  document.getElementById('logout-form').submit();">
+            <a href="{{ route('logout') }}"
+                onclick="event.preventDefault();  document.getElementById('logout-form').submit();">
                 <i data-feather="log-out"></i>
                 <span> Logout </span>
             </a>
